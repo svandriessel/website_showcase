@@ -1,3 +1,9 @@
+/*
+  Author: Sebastiaan van Driessel 2021
+*/
+
+
+
 * {
   margin: 0;
   padding: 0;
@@ -40,10 +46,15 @@ main{
   font-family: "Alegreya", sans-serif;
   min-height: 100vh;
   background: linear-gradient(to right bottom, var(--bg2), var(--bg7));
+  transition: background 2s ease-out;
   /*try: #0052D4, #4364F7, #6FB1FC */
   display: flex;
   align-items: center;
-  justify-content:center;
+  justify-content:space-between;
+  flex-direction: column;
+
+  /* fix for flickering*/
+  backface-visibility: hidden;
 }
 
 .glass {
@@ -55,54 +66,48 @@ border-radius: 2rem;
 z-index: 2;
 backdrop-filter: blur(2rem);
 display:flex;
-
+margin-bottom: 0rem;
+margin-top: 5rem;
+transition: margin 2s ease;
 }
+#section1 {margin-bottom:5rem;}
 
-.circle1,
-.circle2,
-.circle3,
-.circle4,
-.circle5 {
+.circle {
   background:white;
   background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3));
   height:6rem;
   width:6rem;
   position:absolute;
   border-radius: 50%;
+  z-index:1;
+  transition: top 5s ease;
 }
 
-.circle1 {
+#circle1 {
   top:40%;
   right:8%;
   width:3rem;
   height: 3rem;
 }
-.circle2 {
+#circle2 {
   width:5rem;
   height:5rem;
   bottom:10%;
   right:2.5%;
 }
-.circle3 {
+#circle3 {
   width:2rem;
   height:2rem;
   bottom:25%;
   right:3%;
 }
-.circle4 {
+#circle4 {
   width:1rem;
   height:1rem;
   bottom:30%;
   right:1%;
 }
-.circle5 {
-  width:1.5rem;
-  height:1.5rem;
-  bottom:40%;
-  right:0%;
-}
-
-.circle5 {
+#circle5 {
   width:1.5rem;
   height:1.5rem;
   bottom:40%;
@@ -273,4 +278,66 @@ outline:none;
   box-shadow: 1rem 2rem 3rem rgba(255, 255,255,0.2) inset;
   border-radius: 1rem;
   padding:0 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* work exhibition styles, would be cool to have a tv show a short clip*/
+
+#section2{
+  box-shadow: 1rem 3rem 3rem rgba(0, 0,0,0.3) inset;
+  display:flex;
+  align-items: center ;
+  justify-content:center ;
+  flex-direction: column;
+}
+.exphead{
+  flex:1;
+  padding:1rem;
+}
+.exphead h2{
+  color: var(--bg7);
+  font-weight:medium;
+  font-size:3rem;
+}
+
+.expmain{
+  flex:3;
+  display:flex;
+  align-items: center ;
+  justify-content:center ;
+  flex-direction: row;
+}
+.expmain p{
+  font-size:1.2rem;
+}
+.expleft, .expright{
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  height:100%;
+}
+.explefttop, .expleftbottom, .exprighttop, .exprightbottom{
+  padding: 1rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-around;
+  flex-direction:column;
+  }
+.expmain img{
+  width:15rem;
+  height: 15rem;
+  box-shadow: 1rem 2rem 3rem rgba(255, 255,255,0.8);
+  border-radius:50%;
+  border: 1px solid grey;
+  margin:1rem;
 }
